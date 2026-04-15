@@ -5,38 +5,48 @@ import { FcGoogle } from "react-icons/fc";
 import { motion } from "motion/react";
 import { signInWithPopup } from "firebase/auth";
 import { auth, provider } from "../utils/firebase";
-import axios from 'axios'
+import axios from "axios";
 import { backendUrl } from "../App";
 import { useDispatch } from "react-redux";
 import { setUserData } from "../redux/userSlice";
-const Auth = () => {
-  const dispatch = useDispatch()
-  const handleGoogleAuth = async() => {
+const Auth = ({ isModel = false }) => {
+  const dispatch = useDispatch();
+  const handleGoogleAuth = async () => {
     try {
-      const res = await signInWithPopup(auth, provider)
+      const res = await signInWithPopup(auth, provider);
       const User = res.user;
       const name = User.displayName;
       const email = User.email;
 
-      const result = await axios.post(backendUrl + "/api/auth/google", {name, email}, {
-        withCredentials: true
-      })
+      const result = await axios.post(
+        backendUrl + "/api/auth/google",
+        { name, email },
+        {
+          withCredentials: true,
+        },
+      );
 
-      dispatch(setUserData(result.data));
+      dispatch(setUserData(result.data.user));
     } catch (error) {
-      console.log(error)
-       dispatch(setUserData(null));
+      console.log(error);
+      dispatch(setUserData(null));
     }
-  }
-
+  };
 
   return (
-    <div className="w-full min-h-screen bg-[#f3f3f3] flex items-center justify-center px-6 py-20">
+    <div
+      className={`w-full
+    ${isModel ? "py-4" : " min-h-screen bg-[#f3f3f3] flex items-center justify-center px-6 py-20"}`}
+    >
       <motion.div
         initial={{ opacity: 0, y: -40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.05 }}
-        className="w-full max-w-md p-8 rounded-3xl bg-white shadow-2xl border border-gray-200"
+        className={`
+          w-full
+          ${isModel ? "max-w-md p-8 rounded-3xl" : "max-w-lg p-12 rounded-[32px]"}
+          bg-white shadow-2xl border border-gray-200
+          `}
       >
         <div className="flex items-center justify-center gap-3 mb-6">
           <div className="bg-black text-white p-2 rounded-lg">
@@ -57,7 +67,7 @@ const Auth = () => {
         </p>
 
         <motion.button
-        onClick={handleGoogleAuth}
+          onClick={handleGoogleAuth}
           whileHover={{ opacity: 0.9, scale: 1.03 }}
           whileTap={{ opacity: 1, scale: 0.98 }}
           className="w-full flex items-center justify-center gap-3 py-3 bg-black text-white rounded-full shadow-md cursor-pointer"
