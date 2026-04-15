@@ -32,7 +32,7 @@ export const googleAuthController = async (req, res) => {
 
 export const logout = async (req, res) => {
   try {
-    await clearCookie("token");
+    await res.clearCookie("token");
     return res.status(200).json({
       message: "Logout Successfully",
     });
