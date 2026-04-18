@@ -2,6 +2,7 @@ import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Auth from "./pages/Auth";
 import Home from "./pages/Home";
+import InterviewPage from "./pages/InterviewPage"
 import { useEffect } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
@@ -34,6 +35,10 @@ const App = () => {
     {
       path: "/auth",
       element: <Auth />,
+    },
+    {
+      path: "/interview",
+      element: <InterviewPage />,
     },
   ]);
   return (
