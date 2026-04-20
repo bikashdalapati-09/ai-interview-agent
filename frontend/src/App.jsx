@@ -7,6 +7,9 @@ import { useEffect } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { setUserData } from "./redux/userSlice";
+import InterviewHistory from "./pages/InterviewHistory";
+import InterviewReport from "./pages/InterviewReport";
+import Pricing from "./pages/Pricing";
 
 export const backendUrl = "http://localhost:3000";
 
@@ -39,6 +42,18 @@ const App = () => {
     {
       path: "/interview",
       element: <InterviewPage />,
+    },
+    {
+      path: "/history",
+      element: <InterviewHistory />,
+    },
+    {
+      path: "/pricing",
+      element: <Pricing />,
+    },
+    {
+      path: "/report/:id",
+      element: <InterviewReport />,
     },
   ]);
   return (
