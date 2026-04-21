@@ -11,7 +11,7 @@ import InterviewHistory from "./pages/InterviewHistory";
 import InterviewReport from "./pages/InterviewReport";
 import Pricing from "./pages/Pricing";
 
-export const backendUrl = "http://localhost:3000";
+export const backendUrl = "https://ai-interview-agent-1-qwil.onrender.com";
 
 const App = () => {
   const dispatch = useDispatch();
