@@ -25,6 +25,7 @@ const InterviewHistory = () => {
         console.log(error);
       }
     };
+
     getMyInterviews();
   }, []);
 

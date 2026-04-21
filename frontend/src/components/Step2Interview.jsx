@@ -322,7 +322,7 @@ const Step2Interview = ({ interviewData, onFinish }) => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-teal-100 flex items-center justify-center p-4 sm:p-6">
+    <div className="min-h-screen bg-linear-to-br from-emerald-50 via-white to-teal-100 flex items-center justify-center p-4 sm:p-6">
       <div className="w-full max-w-350 min-h-[80vh] bg-white rounded-3xl shadow-2xl border border-gray-200 flex flex-col lg:flex-row overflow-hidden">
         {/* video */}
         <div className="w-full lg:w-[35%] bg-white flex flex-col items-center p-6 space-y-6 border-r border-gray-200">
@@ -420,7 +420,7 @@ const Step2Interview = ({ interviewData, onFinish }) => {
               <motion.button
                 onClick={toggleMic}
                 whileTap={{ scale: 0.9 }}
-                className="w-12 h-12 sm:h-14 sm:h-14 flex items-center justify-center rounded-full bg-black text-white shadow-lg"
+                className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center rounded-full bg-black text-white shadow-lg"
               >
                 {isMicOn ? (
                   <FaMicrophone size={20} />
@@ -433,7 +433,7 @@ const Step2Interview = ({ interviewData, onFinish }) => {
                 onClick={submitAns}
                 disabled={isSubmitting}
                 whileTap={{ scale: 0.95 }}
-                className="flex-1 bg-gradient-to-r from-emerald-600 to-teal-500 text-white py-3 sm:py-4 rounded-2xl shadow-lg hover:opacity-90 transition font-semibold disabled:bg-gray-500"
+                className="flex-1 bg-linear-to-r from-emerald-600 to-teal-500 text-white py-3 sm:py-4 rounded-2xl shadow-lg hover:opacity-90 transition font-semibold disabled:bg-gray-500"
               >
                 {isSubmitting ? "Submitting..." : "Submit Answer"}
               </motion.button>
@@ -448,7 +448,7 @@ const Step2Interview = ({ interviewData, onFinish }) => {
 
               <button
                 onClick={handleNext}
-                className="w-full bg-gradient-to-r from-emerald-600 to-teal-500 text-white py-3 rounded-xl shadow-md hover:opacity-90 transition flex items-center justify-center gap-1"
+                className="w-full bg-linear-to-r from-emerald-600 to-teal-500 text-white py-3 rounded-xl shadow-md hover:opacity-90 transition flex items-center justify-center gap-1"
               >
                 Next Question <BsArrowRight size={18} />
               </button>
